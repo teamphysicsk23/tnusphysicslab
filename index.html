@@ -3,160 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TNUS Physics Lab</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5f7fb;
-            color: #1f2937;
+            color: #172033;
+            line-height: 1.6;
         }
 
+        /* ===== HEADER ===== */
         header {
-            background: #ffffff;
-            padding: 20px 8%;
+            background: #0b1f3a;
+            color: white;
+            padding: 18px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
-            color: #2563eb;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #54b7ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
         }
 
         nav a {
+            color: white;
             text-decoration: none;
-            color: #374151;
-            margin-left: 25px;
+            font-size: 15px;
+            transition: 0.3s;
         }
 
+        nav a:hover {
+            color: #54b7ff;
+        }
+
+        /* ===== HERO ===== */
         .hero {
+            min-height: 500px;
+            background: linear-gradient(
+                rgba(11, 31, 58, 0.92),
+                rgba(20, 62, 105, 0.88)
+            ),
+            radial-gradient(circle at center, #2675b9, #07182d);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 90px 20px;
-            background: linear-gradient(135deg, #e0f2fe, #eef2ff);
+            color: white;
+            padding: 70px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 60px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: #54b7ff;
         }
 
         .hero p {
             font-size: 20px;
-            color: #4b5563;
+            color: #dcecff;
             margin-bottom: 30px;
         }
 
-        .search {
-            width: min(600px, 90%);
-            padding: 16px 20px;
+        .search-box {
+            display: flex;
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex: 1;
             border: none;
-            border-radius: 30px;
+            padding: 17px 20px;
             font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            outline: none;
         }
 
-        .container {
-            width: 84%;
-            max-width: 1200px;
-            margin: 50px auto;
+        .search-box button {
+            border: none;
+            background: #1683d8;
+            color: white;
+            padding: 0 25px;
+            cursor: pointer;
+            font-size: 16px;
         }
 
-        .container h2 {
-            margin-bottom: 25px;
+        /* ===== GENERAL ===== */
+        section {
+            padding: 70px 7%;
         }
 
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
+        .section-title {
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            transition: 0.2s;
+            margin-bottom: 45px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .lessons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .lesson {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-        }
-
-        .lesson h3 {
+        .section-title h2 {
+            font-size: 34px;
+            color: #0b1f3a;
             margin-bottom: 10px;
         }
 
-        .lesson p {
-            color: #6b7280;
+        .section-title p {
+            color: #687386;
+        }
+
+        /* ===== SUBJECTS ===== */
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .subject-card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+            border: 1px solid #e8edf5;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .subject-icon {
+            font-size: 42px;
             margin-bottom: 15px;
+        }
+
+        .subject-card h3 {
+            color: #0b1f3a;
+            margin-bottom: 8px;
+        }
+
+        .subject-card p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* ===== FEATURED ===== */
+        .featured {
+            background: white;
+        }
+
+        .lesson-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .lesson {
+            border: 1px solid #e4e9f1;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .lesson-image {
+            height: 170px;
+            background: linear-gradient(135deg, #123e68, #2396df);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            color: white;
+        }
+
+        .lesson-content {
+            padding: 22px;
+        }
+
+        .lesson-content h3 {
+            color: #0b1f3a;
+            margin-bottom: 8px;
+        }
+
+        .lesson-content p {
+            color: #687386;
+            font-size: 14px;
+            margin-bottom: 18px;
         }
 
         .button {
             display: inline-block;
-            padding: 10px 18px;
-            background: #2563eb;
+            padding: 9px 18px;
+            border-radius: 7px;
+            background: #1683d8;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            font-size: 14px;
         }
 
-        footer {
+        /* ===== TEACHERS ===== */
+        .teachers {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .teacher {
+            background: white;
             text-align: center;
-            padding: 30px;
-            margin-top: 60px;
-            background: #111827;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .teacher-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            background: #dfe9f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .teacher h3 {
+            color: #0b1f3a;
+            margin-bottom: 5px;
+        }
+
+        .teacher p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: #0b1f3a;
+            color: white;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            color: #d7e5f5;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #071426;
+            color: #aebed1;
+            padding: 35px 7%;
+            text-align: center;
+        }
+
+        footer strong {
             color: white;
         }
 
-        @media (max-width: 800px) {
-            .categories,
-            .lessons {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .categories,
-            .lessons {
-                grid-template-columns: 1fr;
-            }
+        /* ===== MOBILE ===== */
+        @media (max-width: 900px) {
 
             nav {
                 display: none;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .subjects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .lesson-list {
+                grid-template-columns: 1fr;
+            }
+
+            .teachers {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .subjects {
+                grid-template-columns: 1fr;
+            }
+
+            .teachers {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 16px;
             }
         }
     </style>
@@ -164,106 +352,430 @@
 
 <body>
 
+<!-- ===== HEADER ===== -->
+
 <header>
-    <div class="logo">🔬 TNUS Physics Lab</div>
+
+    <div class="logo">
+        TNUS <span>Physics Lab</span>
+    </div>
 
     <nav>
-        <a href="#">Trang chủ</a>
-        <a href="#">Kho bài giảng</a>
-        <a href="#">Về chúng tôi</a>
+        <a href="#home">Trang chủ</a>
+        <a href="#subjects">Chủ đề</a>
+        <a href="#lessons">Bài giảng</a>
+        <a href="#experiments">Thí nghiệm</a>
+        <a href="#teachers">Giảng viên</a>
+        <a href="#about">Giới thiệu</a>
     </nav>
+
 </header>
 
-<section class="hero">
-    <h1>TNUS Physics Lab</h1>
+
+<!-- ===== HERO ===== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>TNUS <span>Physics Lab</span></h1>
+
+        <p>
+            Kho học liệu, ý tưởng và thiết kế bài giảng Vật lý
+        </p>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="🔎  Tìm kiếm bài giảng, thí nghiệm..."
+            >
+
+            <button>Tìm kiếm</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== SUBJECTS ===== -->
+
+<section id="subjects">
+
+    <div class="section-title">
+
+        <h2>📚 Khám phá theo chủ đề</h2>
+
+        <p>
+            Hệ thống kiến thức và tài nguyên Vật lý
+        </p>
+
+    </div>
+
+
+    <div class="subjects">
+
+        <div class="subject-card">
+            <div class="subject-icon">⚙️</div>
+            <h3>Cơ học</h3>
+            <p>Chuyển động, lực, năng lượng và động lực học.</p>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon">🌡️</div>
+            <h3>Nhiệt học</h3>
+            <p>Nhiệt độ, nhiệt lượng và các định luật nhiệt động lực học.</p>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon">⚡</div>
+            <h3>Điện học</h3>
+            <p>Dòng điện, mạch điện, điện trường và điện từ.</p>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon">〰️</div>
+            <h3>Dao động</h3>
+            <p>Dao động điều hòa, con lắc và các hệ dao động.</p>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon">🌊</div>
+            <h3>Sóng</h3>
+            <p>Sóng cơ, giao thoa, sóng dừng và âm học.</p>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon">🔭</div>
+            <h3>Quang học</h3>
+            <p>Ánh sáng, thấu kính, giao thoa và các hiện tượng quang học.</p>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon">☢️</div>
+            <h3>Vật lý nguyên tử</h3>
+            <p>Cấu trúc nguyên tử và các hiện tượng lượng tử.</p>
+        </div>
+
+
+        <div class="subject-card">
+            <div class="subject-icon">⚛️</div>
+            <h3>Vật lý hạt nhân</h3>
+            <p>Phóng xạ, phản ứng hạt nhân và năng lượng hạt nhân.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== LESSONS ===== -->
+
+<section class="featured" id="lessons">
+
+    <div class="section-title">
+
+        <h2>📖 Bài giảng & học liệu</h2>
+
+        <p>
+            Những tài nguyên được xây dựng và chia sẻ trên TNUS Physics Lab
+        </p>
+
+    </div>
+
+
+    <div class="lesson-list">
+
+        <div class="lesson">
+
+            <div class="lesson-image">
+                ⚡
+            </div>
+
+            <div class="lesson-content">
+
+                <h3>Định luật Len-xơ</h3>
+
+                <p>
+                    Khảo sát hiện tượng cảm ứng điện từ
+                    và thiết kế mô hình minh họa.
+                </p>
+
+                <a href="bai1.pdf" class="button">
+                    Xem tài liệu
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="lesson">
+
+            <div class="lesson-image">
+                〰️
+            </div>
+
+            <div class="lesson-content">
+
+                <h3>Dao động điều hòa</h3>
+
+                <p>
+                    Tổng hợp kiến thức, công thức và
+                    hoạt động học tập về dao động.
+                </p>
+
+                <a href="#" class="button">
+                    Xem bài
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="lesson">
+
+            <div class="lesson-image">
+                🧪
+            </div>
+
+            <div class="lesson-content">
+
+                <h3>STEM Vật lý</h3>
+
+                <p>
+                    Các ý tưởng dự án STEM dành cho
+                    học sinh phổ thông.
+                </p>
+
+                <a href="#" class="button">
+                    Xem bài
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== EXPERIMENTS ===== -->
+
+<section id="experiments">
+
+    <div class="section-title">
+
+        <h2>🧪 Thí nghiệm Vật lý</h2>
+
+        <p>
+            Không gian chia sẻ các bài thực hành và mô hình thí nghiệm
+        </p>
+
+    </div>
+
+
+    <div class="lesson-list">
+
+        <div class="lesson">
+
+            <div class="lesson-image">
+                🔬
+            </div>
+
+            <div class="lesson-content">
+
+                <h3>Thực hành Vật lý</h3>
+
+                <p>
+                    Tổng hợp các bài thực hành và hướng dẫn thí nghiệm.
+                </p>
+
+                <a href="#" class="button">
+                    Khám phá
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="lesson">
+
+            <div class="lesson-image">
+                💡
+            </div>
+
+            <div class="lesson-content">
+
+                <h3>Mô hình trực quan</h3>
+
+                <p>
+                    Các mô hình giúp học sinh quan sát và hiểu bản chất
+                    của hiện tượng Vật lý.
+                </p>
+
+                <a href="#" class="button">
+                    Khám phá
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="lesson">
+
+            <div class="lesson-image">
+                🧲
+            </div>
+
+            <div class="lesson-content">
+
+                <h3>Điện & từ</h3>
+
+                <p>
+                    Các mô hình và thí nghiệm về điện trường,
+                    từ trường và cảm ứng điện từ.
+                </p>
+
+                <a href="#" class="button">
+                    Khám phá
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== TEACHERS ===== -->
+
+<section class="featured" id="teachers">
+
+    <div class="section-title">
+
+        <h2>👨‍🏫 Đội ngũ giảng viên</h2>
+
+        <p>
+            Thông tin giảng viên và các hướng chuyên môn
+        </p>
+
+    </div>
+
+
+    <div class="teachers">
+
+        <div class="teacher">
+
+            <div class="teacher-photo">
+                👤
+            </div>
+
+            <h3>Giảng viên 01</h3>
+
+            <p>
+                Vật lý học
+            </p>
+
+        </div>
+
+
+        <div class="teacher">
+
+            <div class="teacher-photo">
+                👤
+            </div>
+
+            <h3>Giảng viên 02</h3>
+
+            <p>
+                Vật lý lý thuyết
+            </p>
+
+        </div>
+
+
+        <div class="teacher">
+
+            <div class="teacher-photo">
+                👤
+            </div>
+
+            <h3>Giảng viên 03</h3>
+
+            <p>
+                Vật lý thực nghiệm
+            </p>
+
+        </div>
+
+
+        <div class="teacher">
+
+            <div class="teacher-photo">
+                👤
+            </div>
+
+            <h3>Giảng viên 04</h3>
+
+            <p>
+                Phương pháp giảng dạy Vật lý
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== ABOUT ===== -->
+
+<section class="about" id="about">
+
+    <h2>Về TNUS Physics Lab</h2>
 
     <p>
-        Kho ý tưởng và thiết kế bài giảng Vật lý
+        TNUS Physics Lab là không gian học tập và chia sẻ
+        các ý tưởng, tài liệu, bài giảng và mô hình thí nghiệm
+        Vật lý dành cho sinh viên, giảng viên và học sinh.
     </p>
 
-    <input
-        class="search"
-        type="text"
-        placeholder="🔎 Tìm kiếm ý tưởng bài giảng..."
-    >
 </section>
 
-<section class="container">
 
-    <h2>📚 Khám phá theo chủ đề</h2>
-
-    <div class="categories">
-
-        <div class="card">
-            <div class="icon">⚙️</div>
-            <h3>Cơ học</h3>
-        </div>
-
-        <div class="card">
-            <div class="icon">⚡</div>
-            <h3>Điện học</h3>
-        </div>
-
-        <div class="card">
-            <div class="icon">🧲</div>
-            <h3>Từ học</h3>
-        </div>
-
-        <div class="card">
-            <div class="icon">🌊</div>
-            <h3>Sóng</h3>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="container">
-
-    <h2>💡 Ý tưởng mới nhất</h2>
-
-    <div class="lessons">
-
-        <div class="lesson">
-            <h3>Định luật Lenz</h3>
-            <p>
-                Khám phá định luật Lenz thông qua thí nghiệm
-                cảm ứng điện từ.
-            </p>
-            <a class="button" href="bai1.pdf">
-                Xem tài liệu
-            </a>
-        </div>
-
-        <div class="lesson">
-            <h3>Dao động điều hòa</h3>
-            <p>
-                Ý tưởng thiết kế hoạt động khám phá
-                dao động điều hòa.
-            </p>
-            <a class="button" href="#">
-                Xem bài
-            </a>
-        </div>
-
-        <div class="lesson">
-            <h3>STEM Vật lý</h3>
-            <p>
-                Các ý tưởng dự án STEM dành cho
-                học sinh phổ thông.
-            </p>
-            <a class="button" href="#">
-                Xem bài
-            </a>
-        </div>
-
-    </div>
-
-</section>
+<!-- ===== FOOTER ===== -->
 
 <footer>
-    © 2026 TNUS Physics Lab
+
+    <p>
+        <strong>TNUS Physics Lab</strong>
+    </p>
+
+    <p>
+        Kho học liệu & ý tưởng giảng dạy Vật lý
+    </p>
+
+    <p>
+        © 2026 TNUS Physics Lab
+    </p>
+
 </footer>
+
 
 </body>
 </html>

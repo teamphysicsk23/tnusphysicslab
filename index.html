@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>TNUS Physics Lab</title>
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -20,18 +33,33 @@
             line-height: 1.6;
         }
 
-        /* ===== HEADER ===== */
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
         header {
             background: #0b1f3a;
             color: white;
+
             padding: 18px 7%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             position: sticky;
             top: 0;
+
             z-index: 1000;
+
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
         }
+
 
         .logo {
             font-size: 22px;
@@ -39,377 +67,962 @@
             letter-spacing: 1px;
         }
 
+
         .logo span {
             color: #54b7ff;
         }
 
+
         nav {
             display: flex;
-            gap: 25px;
+            gap: 24px;
         }
+
 
         nav a {
             color: white;
-            text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             transition: 0.3s;
         }
+
 
         nav a:hover {
             color: #54b7ff;
         }
 
-        /* ===== HERO ===== */
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
         .hero {
-            min-height: 500px;
-            background: linear-gradient(
-                rgba(11, 31, 58, 0.92),
-                rgba(20, 62, 105, 0.88)
-            ),
-            radial-gradient(circle at center, #2675b9, #07182d);
+
+            min-height: 540px;
+
+            background:
+                linear-gradient(
+                    rgba(7, 25, 48, 0.90),
+                    rgba(17, 65, 108, 0.88)
+                ),
+                radial-gradient(
+                    circle at center,
+                    #2589ce,
+                    #06172d
+                );
 
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
+
             color: white;
-            padding: 70px 20px;
+
+            padding: 80px 20px;
         }
+
 
         .hero-content {
-            max-width: 850px;
+            max-width: 900px;
+            width: 100%;
         }
 
+
         .hero h1 {
-            font-size: 60px;
-            margin-bottom: 15px;
+
+            font-size: 62px;
+
             letter-spacing: 2px;
+
+            margin-bottom: 15px;
         }
+
 
         .hero h1 span {
             color: #54b7ff;
         }
 
-        .hero p {
+
+        .hero-subtitle {
+
             font-size: 20px;
+
             color: #dcecff;
-            margin-bottom: 30px;
+
+            margin-bottom: 12px;
         }
+
+
+        .hero-description {
+
+            color: #bcd4ea;
+
+            max-width: 700px;
+
+            margin: 0 auto 35px;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
 
         .search-box {
-            display: flex;
-            max-width: 650px;
+
+            max-width: 680px;
+
             margin: auto;
+
             background: white;
+
             border-radius: 12px;
+
             overflow: hidden;
+
+            display: flex;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.20);
         }
+
 
         .search-box input {
+
             flex: 1;
+
             border: none;
-            padding: 17px 20px;
-            font-size: 16px;
+
             outline: none;
+
+            padding: 18px 20px;
+
+            font-size: 15px;
         }
+
 
         .search-box button {
+
             border: none;
+
             background: #1683d8;
+
             color: white;
-            padding: 0 25px;
+
+            padding: 0 28px;
+
             cursor: pointer;
-            font-size: 16px;
+
+            font-size: 15px;
+
+            transition: 0.3s;
         }
 
-        /* ===== GENERAL ===== */
-        section {
-            padding: 70px 7%;
+
+        .search-box button:hover {
+            background: #0d6fb9;
         }
+
+
+        /* =====================================================
+           GENERAL SECTION
+        ===================================================== */
+
+        section {
+            padding: 75px 7%;
+        }
+
 
         .section-title {
+
             text-align: center;
+
             margin-bottom: 45px;
         }
 
+
         .section-title h2 {
-            font-size: 34px;
+
             color: #0b1f3a;
+
+            font-size: 34px;
+
             margin-bottom: 10px;
         }
 
+
         .section-title p {
+
             color: #687386;
+
+            max-width: 700px;
+
+            margin: auto;
         }
 
-        /* ===== SUBJECTS ===== */
+
+        /* =====================================================
+           SUBJECTS
+        ===================================================== */
+
         .subjects {
+
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
             gap: 22px;
         }
 
+
         .subject-card {
+
             background: white;
+
             padding: 30px 22px;
-            border-radius: 15px;
+
+            border-radius: 16px;
+
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+
+            border: 1px solid #e5ebf3;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+
             transition: 0.3s;
-            border: 1px solid #e8edf5;
         }
+
 
         .subject-card:hover {
+
             transform: translateY(-7px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.12);
         }
 
+
         .subject-icon {
+
             font-size: 42px;
+
             margin-bottom: 15px;
         }
 
+
         .subject-card h3 {
+
             color: #0b1f3a;
+
             margin-bottom: 8px;
         }
 
+
         .subject-card p {
+
             color: #718096;
+
             font-size: 14px;
         }
 
-        /* ===== FEATURED ===== */
+
+        /* =====================================================
+           LESSONS
+        ===================================================== */
+
         .featured {
             background: white;
         }
 
+
         .lesson-list {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
         }
 
+
         .lesson {
-            border: 1px solid #e4e9f1;
-            border-radius: 15px;
-            overflow: hidden;
+
             background: white;
+
+            border: 1px solid #e3e9f1;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
             transition: 0.3s;
         }
 
+
         .lesson:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.10);
         }
 
+
         .lesson-image {
-            height: 170px;
-            background: linear-gradient(135deg, #123e68, #2396df);
+
+            height: 175px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #123e68,
+                    #2396df
+                );
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
-            font-size: 55px;
+
+            font-size: 58px;
+
             color: white;
         }
 
+
         .lesson-content {
-            padding: 22px;
+
+            padding: 23px;
         }
 
+
         .lesson-content h3 {
+
             color: #0b1f3a;
+
             margin-bottom: 8px;
         }
 
+
         .lesson-content p {
+
             color: #687386;
+
             font-size: 14px;
+
             margin-bottom: 18px;
         }
 
+
         .button {
+
             display: inline-block;
-            padding: 9px 18px;
-            border-radius: 7px;
+
             background: #1683d8;
+
             color: white;
-            text-decoration: none;
+
+            padding: 9px 18px;
+
+            border-radius: 7px;
+
             font-size: 14px;
+
+            transition: 0.3s;
         }
 
-        /* ===== TEACHERS ===== */
-        .teachers {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+
+        .button:hover {
+            background: #0d6fb9;
         }
 
-        .teacher {
+
+        /* =====================================================
+           ADVISOR
+        ===================================================== */
+
+        .team-section {
+
+            background: #f5f7fb;
+        }
+
+
+        .advisor {
+
+            max-width: 950px;
+
+            margin: 0 auto 70px;
+
             background: white;
-            text-align: center;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-        }
 
-        .teacher-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 18px;
-            background: #dfe9f5;
+            border-radius: 20px;
+
+            padding: 35px;
+
             display: flex;
+
             align-items: center;
-            justify-content: center;
-            font-size: 40px;
+
+            gap: 40px;
+
+            border: 1px solid #e2e8f0;
+
+            box-shadow:
+                0 8px 30px rgba(0,0,0,0.08);
         }
 
-        .teacher h3 {
+
+        .advisor-photo {
+
+            flex-shrink: 0;
+        }
+
+
+        .advisor-photo img {
+
+            width: 190px;
+
+            height: 240px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            display: block;
+
+            background: #e4edf7;
+        }
+
+
+        .advisor-info {
+            flex: 1;
+        }
+
+
+        .advisor-label {
+
+            display: inline-block;
+
+            color: #1683d8;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .advisor-info h3 {
+
+            font-size: 28px;
+
             color: #0b1f3a;
-            margin-bottom: 5px;
-        }
 
-        .teacher p {
-            color: #718096;
-            font-size: 14px;
-        }
-
-        /* ===== ABOUT ===== */
-        .about {
-            background: #0b1f3a;
-            color: white;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 34px;
             margin-bottom: 15px;
         }
 
-        .about p {
-            max-width: 800px;
-            margin: auto;
-            color: #d7e5f5;
+
+        .advisor-info p {
+
+            color: #687386;
+
+            margin-bottom: 10px;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
-            background: #071426;
-            color: #aebed1;
-            padding: 35px 7%;
+
+        .advisor-info strong {
+            color: #314158;
+        }
+
+
+        /* =====================================================
+           TEAM MEMBERS
+        ===================================================== */
+
+        .team-title {
+
+            margin-top: 20px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .team-members {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .member {
+
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            border: 1px solid #e3e9f1;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+
+            transition: 0.3s;
+        }
+
+
+        .member:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.12);
+        }
+
+
+        .member-photo {
+
+            width: 100%;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            display: block;
+
+            background: #e4edf7;
+        }
+
+
+        .member-info {
+
+            padding: 22px;
+        }
+
+
+        .member-info h3 {
+
+            color: #0b1f3a;
+
+            font-size: 19px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .member-role {
+
+            color: #1683d8 !important;
+
+            font-size: 14px !important;
+
+            font-weight: bold;
+
+            margin-bottom: 12px !important;
+        }
+
+
+        .profile-detail {
+
+            border-top: 1px solid #e8edf5;
+
+            margin-top: 12px;
+
+            padding-top: 14px;
+        }
+
+
+        .profile-detail p {
+
+            color: #718096;
+
+            font-size: 13px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .profile-detail strong {
+
+            color: #35445a;
+        }
+
+
+        /* =====================================================
+           EXPERIMENTS
+        ===================================================== */
+
+        .experiment-section {
+
+            background: white;
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+
+            background: #0b1f3a;
+
+            color: white;
+
             text-align: center;
         }
 
-        footer strong {
-            color: white;
+
+        .about h2 {
+
+            font-size: 34px;
+
+            margin-bottom: 15px;
         }
 
-        /* ===== MOBILE ===== */
-        @media (max-width: 900px) {
+
+        .about p {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #d7e5f5;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #071426;
+
+            color: #aebed1;
+
+            padding: 40px 7%;
+
+            text-align: center;
+        }
+
+
+        footer strong {
+
+            color: white;
+
+            font-size: 18px;
+        }
+
+
+        footer p {
+
+            margin-bottom: 7px;
+        }
+
+
+        /* =====================================================
+           SEARCH RESULT
+        ===================================================== */
+
+        #searchMessage {
+
+            display: none;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #1683d8;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .subjects {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .team-members {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .lesson-list {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            header {
+
+                padding: 16px 5%;
+            }
+
 
             nav {
+
                 display: none;
             }
 
+
+            .hero {
+
+                min-height: 500px;
+
+                padding: 60px 20px;
+            }
+
+
             .hero h1 {
+
                 font-size: 42px;
             }
 
-            .subjects {
-                grid-template-columns: repeat(2, 1fr);
+
+            .hero-subtitle {
+
+                font-size: 17px;
             }
 
-            .lesson-list {
-                grid-template-columns: 1fr;
+
+            .advisor {
+
+                flex-direction: column;
+
+                text-align: center;
             }
 
-            .teachers {
-                grid-template-columns: repeat(2, 1fr);
+
+            .advisor-photo img {
+
+                width: 180px;
+
+                height: 230px;
             }
+
         }
+
 
         @media (max-width: 550px) {
 
-            .subjects {
+            section {
+
+                padding: 55px 5%;
+            }
+
+
+            .subjects,
+            .team-members,
+            .lesson-list {
+
                 grid-template-columns: 1fr;
             }
 
-            .teachers {
-                grid-template-columns: 1fr;
-            }
 
             .hero h1 {
+
                 font-size: 34px;
             }
 
-            .hero p {
-                font-size: 16px;
+
+            .hero-description {
+
+                font-size: 14px;
             }
+
+
+            .search-box {
+
+                flex-direction: column;
+
+                border-radius: 10px;
+            }
+
+
+            .search-box button {
+
+                padding: 14px;
+            }
+
+
+            .section-title h2 {
+
+                font-size: 28px;
+            }
+
+
+            .advisor {
+
+                padding: 25px;
+            }
+
+
+            .advisor-info h3 {
+
+                font-size: 23px;
+            }
+
+
+            .member-photo {
+
+                height: 330px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-<!-- ===== HEADER ===== -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
     <div class="logo">
+
         TNUS <span>Physics Lab</span>
+
     </div>
 
+
     <nav>
-        <a href="#home">Trang chủ</a>
-        <a href="#subjects">Chủ đề</a>
-        <a href="#lessons">Bài giảng</a>
-        <a href="#experiments">Thí nghiệm</a>
-        <a href="#teachers">Giảng viên</a>
-        <a href="#about">Giới thiệu</a>
+
+        <a href="#home">
+            Trang chủ
+        </a>
+
+        <a href="#subjects">
+            Chủ đề
+        </a>
+
+        <a href="#lessons">
+            Bài giảng
+        </a>
+
+        <a href="#experiments">
+            Thí nghiệm
+        </a>
+
+        <a href="#teachers">
+            Đội ngũ
+        </a>
+
+        <a href="#about">
+            Giới thiệu
+        </a>
+
     </nav>
 
 </header>
 
 
-<!-- ===== HERO ===== -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="home">
 
     <div class="hero-content">
 
-        <h1>TNUS <span>Physics Lab</span></h1>
+        <h1>
+            TNUS <span>Physics Lab</span>
+        </h1>
 
-        <p>
-            Kho học liệu, ý tưởng và thiết kế bài giảng Vật lý
+
+        <p class="hero-subtitle">
+
+            Kho học liệu & ý tưởng giảng dạy Vật lý
+
         </p>
+
+
+        <p class="hero-description">
+
+            Không gian chia sẻ tài liệu, bài giảng,
+            thí nghiệm, mô hình và các ý tưởng
+            dạy học Vật lý.
+
+        </p>
+
 
         <div class="search-box">
 
             <input
                 type="text"
-                placeholder="🔎  Tìm kiếm bài giảng, thí nghiệm..."
+                id="searchInput"
+                placeholder="🔎  Tìm kiếm bài giảng, tài liệu..."
             >
 
-            <button>Tìm kiếm</button>
+
+            <button onclick="searchContent()">
+
+                Tìm kiếm
+
+            </button>
 
         </div>
+
+
+        <div id="searchMessage"></div>
 
     </div>
 
 </section>
 
 
-<!-- ===== SUBJECTS ===== -->
+
+<!-- =====================================================
+     SUBJECTS
+===================================================== -->
 
 <section id="subjects">
 
     <div class="section-title">
 
-        <h2>📚 Khám phá theo chủ đề</h2>
+        <h2>
+            📚 Khám phá theo chủ đề
+        </h2>
+
 
         <p>
-            Hệ thống kiến thức và tài nguyên Vật lý
+
+            Hệ thống các lĩnh vực Vật lý
+            được sắp xếp theo từng chủ đề.
+
         </p>
 
     </div>
@@ -417,82 +1030,191 @@
 
     <div class="subjects">
 
+
         <div class="subject-card">
-            <div class="subject-icon">⚙️</div>
-            <h3>Cơ học</h3>
-            <p>Chuyển động, lực, năng lượng và động lực học.</p>
+
+            <div class="subject-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Cơ học
+            </h3>
+
+            <p>
+                Chuyển động, lực, công,
+                năng lượng và động lực học.
+            </p>
+
         </div>
 
 
+
         <div class="subject-card">
-            <div class="subject-icon">🌡️</div>
-            <h3>Nhiệt học</h3>
-            <p>Nhiệt độ, nhiệt lượng và các định luật nhiệt động lực học.</p>
+
+            <div class="subject-icon">
+                🌡️
+            </div>
+
+            <h3>
+                Nhiệt học
+            </h3>
+
+            <p>
+                Nhiệt độ, nhiệt lượng,
+                chất khí và nhiệt động lực học.
+            </p>
+
         </div>
 
 
+
         <div class="subject-card">
-            <div class="subject-icon">⚡</div>
-            <h3>Điện học</h3>
-            <p>Dòng điện, mạch điện, điện trường và điện từ.</p>
+
+            <div class="subject-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Điện học
+            </h3>
+
+            <p>
+                Điện trường, dòng điện,
+                mạch điện và điện từ học.
+            </p>
+
         </div>
 
 
+
         <div class="subject-card">
-            <div class="subject-icon">〰️</div>
-            <h3>Dao động</h3>
-            <p>Dao động điều hòa, con lắc và các hệ dao động.</p>
+
+            <div class="subject-icon">
+                〰️
+            </div>
+
+            <h3>
+                Dao động
+            </h3>
+
+            <p>
+                Dao động điều hòa,
+                con lắc và các hệ dao động.
+            </p>
+
         </div>
 
 
+
         <div class="subject-card">
-            <div class="subject-icon">🌊</div>
-            <h3>Sóng</h3>
-            <p>Sóng cơ, giao thoa, sóng dừng và âm học.</p>
+
+            <div class="subject-icon">
+                🌊
+            </div>
+
+            <h3>
+                Sóng
+            </h3>
+
+            <p>
+                Sóng cơ, giao thoa,
+                sóng dừng và âm học.
+            </p>
+
         </div>
 
 
+
         <div class="subject-card">
-            <div class="subject-icon">🔭</div>
-            <h3>Quang học</h3>
-            <p>Ánh sáng, thấu kính, giao thoa và các hiện tượng quang học.</p>
+
+            <div class="subject-icon">
+                🔭
+            </div>
+
+            <h3>
+                Quang học
+            </h3>
+
+            <p>
+                Ánh sáng, thấu kính,
+                giao thoa và quang học.
+            </p>
+
         </div>
 
 
+
         <div class="subject-card">
-            <div class="subject-icon">☢️</div>
-            <h3>Vật lý nguyên tử</h3>
-            <p>Cấu trúc nguyên tử và các hiện tượng lượng tử.</p>
+
+            <div class="subject-icon">
+                ☢️
+            </div>
+
+            <h3>
+                Vật lý nguyên tử
+            </h3>
+
+            <p>
+                Cấu trúc nguyên tử
+                và các hiện tượng lượng tử.
+            </p>
+
         </div>
 
 
+
         <div class="subject-card">
-            <div class="subject-icon">⚛️</div>
-            <h3>Vật lý hạt nhân</h3>
-            <p>Phóng xạ, phản ứng hạt nhân và năng lượng hạt nhân.</p>
+
+            <div class="subject-icon">
+                ⚛️
+            </div>
+
+            <h3>
+                Vật lý hạt nhân
+            </h3>
+
+            <p>
+                Phóng xạ, phản ứng hạt nhân
+                và năng lượng hạt nhân.
+            </p>
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- ===== LESSONS ===== -->
+
+<!-- =====================================================
+     LESSONS
+===================================================== -->
 
 <section class="featured" id="lessons">
 
     <div class="section-title">
 
-        <h2>📖 Bài giảng & học liệu</h2>
+        <h2>
+            📖 Bài giảng & học liệu
+        </h2>
+
 
         <p>
-            Những tài nguyên được xây dựng và chia sẻ trên TNUS Physics Lab
+
+            Tài liệu và ý tưởng giảng dạy
+            được chia sẻ trên TNUS Physics Lab.
+
         </p>
 
     </div>
 
 
     <div class="lesson-list">
+
+
+        <!-- BÀI 1 -->
 
         <div class="lesson">
 
@@ -500,23 +1222,38 @@
                 ⚡
             </div>
 
+
             <div class="lesson-content">
 
-                <h3>Định luật Len-xơ</h3>
+                <h3>
+                    Định luật Len-xơ
+                </h3>
+
 
                 <p>
-                    Khảo sát hiện tượng cảm ứng điện từ
-                    và thiết kế mô hình minh họa.
+
+                    Khảo sát hiện tượng cảm ứng
+                    điện từ và thiết kế mô hình
+                    minh họa.
+
                 </p>
 
-                <a href="bai1.pdf" class="button">
-                    Xem tài liệu
+
+                <a
+                    href="bai1.pdf"
+                    class="button"
+                    target="_blank"
+                >
+                    📄 Xem tài liệu
                 </a>
 
             </div>
 
         </div>
 
+
+
+        <!-- BÀI 2 -->
 
         <div class="lesson">
 
@@ -524,16 +1261,27 @@
                 〰️
             </div>
 
+
             <div class="lesson-content">
 
-                <h3>Dao động điều hòa</h3>
+                <h3>
+                    Dao động điều hòa
+                </h3>
+
 
                 <p>
-                    Tổng hợp kiến thức, công thức và
-                    hoạt động học tập về dao động.
+
+                    Kiến thức, công thức và
+                    hoạt động học tập về
+                    dao động điều hòa.
+
                 </p>
 
-                <a href="#" class="button">
+
+                <a
+                    href="#"
+                    class="button"
+                >
                     Xem bài
                 </a>
 
@@ -541,6 +1289,9 @@
 
         </div>
 
+
+
+        <!-- BÀI 3 -->
 
         <div class="lesson">
 
@@ -548,16 +1299,26 @@
                 🧪
             </div>
 
+
             <div class="lesson-content">
 
-                <h3>STEM Vật lý</h3>
+                <h3>
+                    STEM Vật lý
+                </h3>
+
 
                 <p>
-                    Các ý tưởng dự án STEM dành cho
-                    học sinh phổ thông.
+
+                    Các ý tưởng dự án STEM
+                    dành cho học sinh phổ thông.
+
                 </p>
 
-                <a href="#" class="button">
+
+                <a
+                    href="#"
+                    class="button"
+                >
                     Xem bài
                 </a>
 
@@ -565,21 +1326,34 @@
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- ===== EXPERIMENTS ===== -->
 
-<section id="experiments">
+<!-- =====================================================
+     EXPERIMENTS
+===================================================== -->
+
+<section
+    class="experiment-section"
+    id="experiments"
+>
 
     <div class="section-title">
 
-        <h2>🧪 Thí nghiệm Vật lý</h2>
+        <h2>
+            🧪 Thí nghiệm Vật lý
+        </h2>
+
 
         <p>
-            Không gian chia sẻ các bài thực hành và mô hình thí nghiệm
+
+            Không gian chia sẻ các bài thực hành,
+            mô hình và hoạt động thí nghiệm.
+
         </p>
 
     </div>
@@ -587,27 +1361,40 @@
 
     <div class="lesson-list">
 
+
         <div class="lesson">
 
             <div class="lesson-image">
                 🔬
             </div>
 
+
             <div class="lesson-content">
 
-                <h3>Thực hành Vật lý</h3>
+                <h3>
+                    Thực hành Vật lý
+                </h3>
+
 
                 <p>
-                    Tổng hợp các bài thực hành và hướng dẫn thí nghiệm.
+
+                    Tổng hợp các bài thực hành
+                    và hướng dẫn thí nghiệm.
+
                 </p>
 
-                <a href="#" class="button">
+
+                <a
+                    href="#"
+                    class="button"
+                >
                     Khám phá
                 </a>
 
             </div>
 
         </div>
+
 
 
         <div class="lesson">
@@ -616,22 +1403,34 @@
                 💡
             </div>
 
+
             <div class="lesson-content">
 
-                <h3>Mô hình trực quan</h3>
+                <h3>
+                    Mô hình trực quan
+                </h3>
+
 
                 <p>
-                    Các mô hình giúp học sinh quan sát và hiểu bản chất
-                    của hiện tượng Vật lý.
+
+                    Các mô hình giúp học sinh
+                    quan sát và hiểu bản chất
+                    hiện tượng Vật lý.
+
                 </p>
 
-                <a href="#" class="button">
+
+                <a
+                    href="#"
+                    class="button"
+                >
                     Khám phá
                 </a>
 
             </div>
 
         </div>
+
 
 
         <div class="lesson">
@@ -640,16 +1439,27 @@
                 🧲
             </div>
 
+
             <div class="lesson-content">
 
-                <h3>Điện & từ</h3>
+                <h3>
+                    Điện & từ
+                </h3>
+
 
                 <p>
-                    Các mô hình và thí nghiệm về điện trường,
-                    từ trường và cảm ứng điện từ.
+
+                    Các mô hình và thí nghiệm
+                    về điện trường, từ trường
+                    và cảm ứng điện từ.
+
                 </p>
 
-                <a href="#" class="button">
+
+                <a
+                    href="#"
+                    class="button"
+                >
                     Khám phá
                 </a>
 
@@ -657,125 +1467,525 @@
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- ===== TEACHERS ===== -->
 
-<section class="featured" id="teachers">
+<!-- =====================================================
+     TEACHER & TEAM
+===================================================== -->
+
+<section
+    class="team-section"
+    id="teachers"
+>
+
+
+    <!-- GIẢNG VIÊN -->
 
     <div class="section-title">
 
-        <h2>👨‍🏫 Đội ngũ giảng viên</h2>
+        <h2>
+            👩‍🏫 Giảng viên hướng dẫn
+        </h2>
+
 
         <p>
-            Thông tin giảng viên và các hướng chuyên môn
+
+            Giảng viên đồng hành cùng nhóm
+            trong quá trình học tập và phát triển
+            TNUS Physics Lab.
+
         </p>
 
     </div>
 
 
-    <div class="teachers">
 
-        <div class="teacher">
+    <div class="advisor">
 
-            <div class="teacher-photo">
-                👤
-            </div>
 
-            <h3>Giảng viên 01</h3>
+        <div class="advisor-photo">
 
-            <p>
-                Vật lý học
-            </p>
+            <img
+                src="images/nguyen-thi-hien.jpg"
+                alt="PGS.TS. Nguyễn Thị Hiền"
+            >
 
         </div>
 
 
-        <div class="teacher">
 
-            <div class="teacher-photo">
-                👤
+        <div class="advisor-info">
+
+
+            <div class="advisor-label">
+
+                GIẢNG VIÊN HƯỚNG DẪN
+
             </div>
 
-            <h3>Giảng viên 02</h3>
+
+            <h3>
+
+                PGS.TS. Nguyễn Thị Hiền
+
+            </h3>
+
 
             <p>
-                Vật lý lý thuyết
+
+                Giảng viên hướng dẫn
+                nhóm TNUS Physics Lab.
+
             </p>
+
+
+            <p>
+
+                Đồng hành cùng nhóm trong quá trình
+                học tập, nghiên cứu và xây dựng
+                các sản phẩm học liệu Vật lý.
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Lĩnh vực:
+                </strong>
+
+                Vật lý học và phương pháp
+                giảng dạy Vật lý.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- THÀNH VIÊN -->
+
+    <div class="section-title team-title">
+
+        <h2>
+            👥 Thành viên nhóm
+        </h2>
+
+
+        <p>
+
+            Đội ngũ sinh viên tham gia xây dựng
+            và phát triển TNUS Physics Lab.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="team-members">
+
+
+        <!-- =============================================
+             THÀNH VIÊN 01
+        ============================================== -->
+
+        <div class="member">
+
+
+            <img
+                src="images/thanh-vien-01.jpg"
+                alt="Thành viên 01"
+                class="member-photo"
+            >
+
+
+            <div class="member-info">
+
+
+                <h3>
+                    Họ và tên thành viên 01
+                </h3>
+
+
+                <p class="member-role">
+                    Thành viên nhóm
+                </p>
+
+
+                <div class="profile-detail">
+
+
+                    <p>
+                        <strong>Khóa:</strong>
+                        K23
+                    </p>
+
+
+                    <p>
+                        <strong>Ngành:</strong>
+                        Vật lý học
+                    </p>
+
+
+                    <p>
+                        <strong>Vai trò:</strong>
+                        Nội dung học liệu
+                    </p>
+
+
+                    <p>
+                        <strong>Giới thiệu:</strong>
+                        Biên soạn và phát triển
+                        nội dung học tập.
+                    </p>
+
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="teacher">
 
-            <div class="teacher-photo">
-                👤
+        <!-- =============================================
+             THÀNH VIÊN 02
+        ============================================== -->
+
+        <div class="member">
+
+
+            <img
+                src="images/thanh-vien-02.jpg"
+                alt="Thành viên 02"
+                class="member-photo"
+            >
+
+
+            <div class="member-info">
+
+
+                <h3>
+                    Họ và tên thành viên 02
+                </h3>
+
+
+                <p class="member-role">
+                    Thành viên nhóm
+                </p>
+
+
+                <div class="profile-detail">
+
+
+                    <p>
+                        <strong>Khóa:</strong>
+                        K23
+                    </p>
+
+
+                    <p>
+                        <strong>Ngành:</strong>
+                        Vật lý học
+                    </p>
+
+
+                    <p>
+                        <strong>Vai trò:</strong>
+                        Thiết kế bài giảng
+                    </p>
+
+
+                    <p>
+                        <strong>Giới thiệu:</strong>
+                        Thiết kế và phát triển
+                        các bài giảng Vật lý.
+                    </p>
+
+
+                </div>
+
             </div>
-
-            <h3>Giảng viên 03</h3>
-
-            <p>
-                Vật lý thực nghiệm
-            </p>
 
         </div>
 
 
-        <div class="teacher">
 
-            <div class="teacher-photo">
-                👤
+        <!-- =============================================
+             THÀNH VIÊN 03
+        ============================================== -->
+
+        <div class="member">
+
+
+            <img
+                src="images/thanh-vien-03.jpg"
+                alt="Thành viên 03"
+                class="member-photo"
+            >
+
+
+            <div class="member-info">
+
+
+                <h3>
+                    Họ và tên thành viên 03
+                </h3>
+
+
+                <p class="member-role">
+                    Thành viên nhóm
+                </p>
+
+
+                <div class="profile-detail">
+
+
+                    <p>
+                        <strong>Khóa:</strong>
+                        K23
+                    </p>
+
+
+                    <p>
+                        <strong>Ngành:</strong>
+                        Vật lý học
+                    </p>
+
+
+                    <p>
+                        <strong>Vai trò:</strong>
+                        Thí nghiệm & mô hình
+                    </p>
+
+
+                    <p>
+                        <strong>Giới thiệu:</strong>
+                        Phụ trách hoạt động thực hành,
+                        thí nghiệm và mô hình Vật lý.
+                    </p>
+
+
+                </div>
+
             </div>
 
-            <h3>Giảng viên 04</h3>
+        </div>
 
-            <p>
-                Phương pháp giảng dạy Vật lý
-            </p>
+
+
+        <!-- =============================================
+             THÀNH VIÊN 04
+        ============================================== -->
+
+        <div class="member">
+
+
+            <img
+                src="images/thanh-vien-04.jpg"
+                alt="Thành viên 04"
+                class="member-photo"
+            >
+
+
+            <div class="member-info">
+
+
+                <h3>
+                    Họ và tên thành viên 04
+                </h3>
+
+
+                <p class="member-role">
+                    Thành viên nhóm
+                </p>
+
+
+                <div class="profile-detail">
+
+
+                    <p>
+                        <strong>Khóa:</strong>
+                        K23
+                    </p>
+
+
+                    <p>
+                        <strong>Ngành:</strong>
+                        Vật lý học
+                    </p>
+
+
+                    <p>
+                        <strong>Vai trò:</strong>
+                        Phát triển website
+                    </p>
+
+
+                    <p>
+                        <strong>Giới thiệu:</strong>
+                        Xây dựng và phát triển
+                        hệ thống website.
+                    </p>
+
+
+                </div>
+
+            </div>
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- ===== ABOUT ===== -->
 
-<section class="about" id="about">
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-    <h2>Về TNUS Physics Lab</h2>
+<section
+    class="about"
+    id="about"
+>
+
+
+    <h2>
+        Về TNUS Physics Lab
+    </h2>
+
 
     <p>
-        TNUS Physics Lab là không gian học tập và chia sẻ
-        các ý tưởng, tài liệu, bài giảng và mô hình thí nghiệm
-        Vật lý dành cho sinh viên, giảng viên và học sinh.
+
+        TNUS Physics Lab là không gian học tập
+        và chia sẻ các ý tưởng, tài liệu,
+        bài giảng, thí nghiệm và mô hình Vật lý
+        dành cho sinh viên, giảng viên
+        và học sinh.
+
     </p>
+
 
 </section>
 
 
-<!-- ===== FOOTER ===== -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    <p>
-        <strong>TNUS Physics Lab</strong>
-    </p>
 
     <p>
-        Kho học liệu & ý tưởng giảng dạy Vật lý
+
+        <strong>
+            TNUS Physics Lab
+        </strong>
+
     </p>
 
+
     <p>
+
+        Kho học liệu & ý tưởng
+        giảng dạy Vật lý
+
+    </p>
+
+
+    <p>
+
         © 2026 TNUS Physics Lab
+
     </p>
+
 
 </footer>
 
 
+
+<!-- =====================================================
+     JAVASCRIPT - SEARCH
+===================================================== -->
+
+<script>
+
+    function searchContent() {
+
+        const input =
+            document.getElementById("searchInput");
+
+        const message =
+            document.getElementById("searchMessage");
+
+        const keyword =
+            input.value.toLowerCase().trim();
+
+
+        if (keyword === "") {
+
+            message.style.display = "none";
+
+            return;
+
+        }
+
+
+        const pageText =
+            document.body.innerText.toLowerCase();
+
+
+        if (pageText.includes(keyword)) {
+
+            message.innerHTML =
+                "✓ Có nội dung liên quan đến: " +
+                input.value;
+
+            message.style.display = "block";
+
+        } else {
+
+            message.innerHTML =
+                "Không tìm thấy nội dung: " +
+                input.value;
+
+            message.style.display = "block";
+
+        }
+
+    }
+
+
+    document
+        .getElementById("searchInput")
+        .addEventListener(
+            "keypress",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    searchContent();
+
+                }
+
+            }
+        );
+
+</script>
+
+
 </body>
+
 </html>

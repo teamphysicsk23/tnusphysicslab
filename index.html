@@ -12,7 +12,19 @@ a{text-decoration:none;color:inherit}
 header{position:sticky;top:0;z-index:10;background:#0b1f3a;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:22px;font-weight:bold}.logo span{color:#54b7ff}
 nav{display:flex;gap:20px;font-size:14px}nav a:hover{color:#54b7ff}
-.hero{padding:90px 7%;text-align:center;color:white;background:linear-gradient(rgba(5,35,65,.78),rgba(7,93,150,.78)),url("images/anh-tap-the-cut.jpg");background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero{
+  position:relative;
+  min-height:590px;
+  padding:90px 7% 120px;
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(rgba(5,35,65,.78),rgba(7,93,150,.78)),
+    url("anh-tap-the-cut(1).jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
 .hero h1{font-size:clamp(35px,6vw,65px)}.hero h1 span{color:#54b7ff}.hero{
   padding:90px 7%;
   text-align:center;
@@ -28,7 +40,16 @@ nav{display:flex;gap:20px;font-size:14px}nav a:hover{color:#54b7ff}
   background-repeat:no-repeat;
 }
 .hero p{max-width:700px;margin:15px auto 30px;color:#dcecff}
-.search{display:flex;max-width:650px;margin:auto;background:white;border-radius:10px;overflow:hidden}
+..search{
+  display:flex;
+  max-width:650px;
+  margin:110px auto 0;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+  z-index:2;
+}
 .search input{flex:1;padding:16px;border:0;outline:0}.search button,.button{background:#1683d8;color:white;border:0;padding:12px 20px;cursor:pointer;border-radius:7px}
 section{padding:70px 7%}.title{text-align:center;margin-bottom:40px}.title h2{font-size:32px;color:#0b1f3a}.title p{color:#687386}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
